@@ -1,0 +1,24 @@
+<app-child-form [patient]="patient" [genders]="genders" [services]="services" (formSubmitted)="insertData($event)"></app-child-form>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Date Of Birth</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Type Of Service</th>
+    <th scope="col">General Comments</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let patient of patients" [class.table-secondary]="patient.most_active">
+    <th scope="row">{{patient.patient_service_id}}</th>
+    <td>{{patient.patient_name}}</td>
+    <td>{{patient.patient_birth_date | dateOfBirth}}</td>
+    <td>{{patient.gender_name}}</td>
+    <td>{{patient.service_name}}</td>
+    <td>{{patient.comments}}</td>
+    </tr>
+  </tbody>
+</table>
